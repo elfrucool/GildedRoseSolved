@@ -29,3 +29,15 @@ So let's start biting this rounded cheese
 
 I first will grab the program output in a file named: **ORIGINAL.txt**, this will be my reference for the
 following refactor activities.
+
+
+## BITE 2: INSTANTIATION REFACTORED
+
+I will create a factory for the GildedRose class named GildedRoseFactory, the only external dependency is the list
+of items to process. To do that I'll start with a test named GildedRoseTest.
+
+By using a factory instead of the constructor directly I can play with the object configuration independently from the
+program.
+
+I ran again the program and grabbed the output in a file named: **FACTORY.txt**; it's exactly the same content as
+**ORIGINAL.txt**.

@@ -14,7 +14,8 @@ public class Program {
                 new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
                 new Item("Conjured Mana Cake", 3, 6)
         };
-        GildedRose app = new GildedRose(items);
+        GildedRoseFactory factory = new GildedRoseFactory();
+        GildedRose app = factory.createGildedRose(items);
         printItems(items, "Initial Conditions");
         for (int i = 0; i < 20; i++) {
             app.updateQuality();
