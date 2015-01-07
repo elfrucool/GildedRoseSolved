@@ -65,3 +65,40 @@ to the _capturedOutput_ property. The new class is an inner class inside my test
 
 Finally I ran again the main program and grabbed the output in a file named **ITERATION.txt**; it's exactly the same
 content as **ORIGINAL.txt**.
+
+# STAGE 2: GENERATING ALL TEST SCENARIOS
+
+Legacy code brings its own challenge, it is fragile, you could move a very little thing and think it won't hurt
+but later probably some weeks after the change is in production, some clients will be calling or e-mailing
+saying that they are very angry because their very cool stuff is not working anymore.
+
+We could mix testing and fixing at a melodious pace, but I feel like in this case (legacy code has lots of feelings,
+don't despise them) it is better having the full set of tests first (well at least I'll do my best effort to do that
+and I'll try to arrive to an optimal situation before making changes into production code).
+
+This is because we will have confidence that our changes really won't hurt some unforeseen situations.
+
+I'll use parametric tests grouping them by the item type they represent; it means four groups (I'll also name them
+bites to follow the previous convention ;) ). The main idea is that, for a single Item, when the **updateQuality**
+method runs then the item state should be transformed to an expected one.
+
+The properties that we will assess are _sellIn_ and _quality_; the name property is irrelevant for the comparison
+because the Item's name never changes so the expected item can have an empty string name and it is more readable.
+
+At a lower level of detail, I'll follow every if/else/for and so on to be sure every line of code is executed
+through the tests. I will make the tests intentionally fail to ensure the tests are right and then I'll make them pass
+to reflect the program behavior.
+
+The difference among refactoring legacy code and making new code is that legacy code (at least in theory) is already
+working, so at this stage the main effort is in producing accurate tests for that code.
+I'll follow a from-simple-to-complex approach to drive the tests so I can keep coding in a good pace avoiding
+getting stuck (I hope).
+
+Last but not least, we need to keep in mind the requirements, we will need them.
+
+You can track my changes of this stage with the following commit messages:
+
+* BITE 4: NORMAL ITEM SCENARIOS
+* BITE 5: SULFURAS ITEM SCENARIOS
+* BITE 6: AGED BRIE SCENARIOS
+* BITE 7: BACKSTAGE SCENARIOS

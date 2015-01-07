@@ -48,4 +48,24 @@ public class GildedRoseTest {
             capturedOutput += item.name;
         }
     }
+
+    @Test
+    @Parameters(method = "transformationParameters")
+    public void shouldTransformItem(String label, Item item, Item expected) throws Exception {
+        GildedRoseFactory factory = new GildedRoseFactory();
+        GildedRose gr = factory.createGildedRose(new Item[]{item});
+        gr.updateQuality();
+        assertEquals(expected.sellIn, item.sellIn);
+        assertEquals(expected.quality, item.quality);
+    }
+
+    protected Object transformationParameters() {
+        return $(
+                $("normal item", new Item("foo", 0, 0), new Item("", -1, 0)),
+                $("normal item", new Item("foo", 1, 0), new Item("", 0, 0)),
+                $("normal item", new Item("foo", 1, 1), new Item("", 0, 0)),
+                $("normal item", new Item("foo", 10, 10), new Item("", 9, 9)),
+                $("normal item", new Item("foo", 0, 10), new Item("", -1, 8))
+        );
+    }
 }
