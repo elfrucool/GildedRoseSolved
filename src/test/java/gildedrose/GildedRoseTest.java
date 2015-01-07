@@ -73,7 +73,22 @@ public class GildedRoseTest {
                 $("aged brie", new Item("Aged Brie", 1, 50), new Item("", 0, 50)),
                 $("aged brie", new Item("Aged Brie", 0, 50), new Item("", -1, 50)),
                 $("aged brie", new Item("Aged Brie", 0, 49), new Item("", -1, 50)),
-                $("aged brie", new Item("Aged Brie", 0, 0), new Item("", -1, 2))
+                $("aged brie", new Item("Aged Brie", 0, 0), new Item("", -1, 2)),
+
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0), new Item("", -1, 0)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10), new Item("", -1, 0)),
+
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 20, 10), new Item("", 19, 11)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 20, 50), new Item("", 19, 50)),
+
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10), new Item("", 9, 12)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 10, 50), new Item("", 9, 50)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49), new Item("", 9, 50)),
+
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0), new Item("", 4, 3)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50), new Item("", 4, 50)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49), new Item("", 4, 50)),
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48), new Item("", 4, 50))
         );
     }
 }
