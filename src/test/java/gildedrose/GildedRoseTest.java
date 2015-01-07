@@ -65,7 +65,9 @@ public class GildedRoseTest {
                 $("normal item", new Item("foo", 1, 0), new Item("", 0, 0)),
                 $("normal item", new Item("foo", 1, 1), new Item("", 0, 0)),
                 $("normal item", new Item("foo", 10, 10), new Item("", 9, 9)),
-                $("normal item", new Item("foo", 0, 10), new Item("", -1, 8))
+                $("normal item", new Item("foo", 0, 10), new Item("", -1, 8)),
+
+                $("sulfuras", new Item("Sulfuras, Hand of Ragnaros", 10, 80), new Item("", 10, 80))
         );
     }
 }
