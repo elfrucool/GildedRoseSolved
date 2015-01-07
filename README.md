@@ -141,3 +141,15 @@ We can see that the **updateQuality** method has three blocks inside:
 So I'll extract three methods for that, (and comment them to ensure they are covered by the tests).
 Deliberatedly most of the methods I'm creating are protected, this is for doing polymorphism later ;).
 
+## BITE 10: EXTRACTING COMMON TRANSFORMATIONS
+
+We can see that many expressions are repeated among the code, so I'll extract them in common transformation methods.
+We can see increments and decrements to quality surrounded by the same _if_ clauses and so on...
+
+I noticed that there is an _if_ block for _backstage_ item (line 32) inside an _if_ for simply increment
+the quality (line 29), that block can be easily extracted a level and then we have another repeated code block.
+
+The commits will be identified as:
+
+* BITE 10.1: EXTRACTING IF BLOCK
+* BITE 10.2: EXTRACTING COMMON TRANSFORMATIONS
