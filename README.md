@@ -41,3 +41,27 @@ program.
 
 I ran again the program and grabbed the output in a file named: **FACTORY.txt**; it's exactly the same content as
 **ORIGINAL.txt**.
+
+## BITE 3: DECOUPLING ITERATON FROM ITEM TRANSFORMATION
+
+Viewing the code I notice that there is a big for loop through the items, and then, inside there are all
+the transformations. I will extract the transformations in an inner method.
+
+Prior to extract the transformations from the iteration loop, I'll create the tests. For this kata I realized that
+the best way to do that is using a parametric test. I'll use **junitparams** framework because it is very cool
+for writing parametric tests.
+
+I'll write a test named **canIterate** with the following parameters: label, items and _expected_.
+The _expected_ variable will contain the expected result of concatenating the name of every item being iterated.
+The _actual_ iteration result will be put in a property named _capturedOutput_.
+So for no items, _expected_ value should be the empty string ("").
+
+Talking about the rounded cheese, I'll do some ugly things to make the code a little testable: I'll act on the code
+using the IDE capabilities to make it testable by extracting a method named **updateItem**.
+
+To make the test pass, I'll override the **updateItem** method by forcing it to simply concatenate the item name
+to the _capturedOutput_ property. The new class is an inner class inside my test class and it is named
+**GildedRoseSpy**.
+
+Finally I ran again the main program and grabbed the output in a file named **ITERATION.txt**; it's exactly the same
+content as **ORIGINAL.txt**.
