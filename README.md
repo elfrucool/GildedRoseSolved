@@ -129,3 +129,15 @@ This step will only cover reducing obvious operations to its minimal expression,
 
 Also it could be useful temporally commenting the line prior to refactoring it just to ensure the tests
 are covering it.
+
+## BITE 9: SPLITTING BIG METHOD IN SMALLER PIECES
+
+We can see that the **updateQuality** method has three blocks inside:
+
+. Updating quality block
+. Updating sellIn block
+. Dealing with outdated item
+
+So I'll extract three methods for that, (and comment them to ensure they are covered by the tests).
+Deliberatedly most of the methods I'm creating are protected, this is for doing polymorphism later ;).
+
