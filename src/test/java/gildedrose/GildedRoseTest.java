@@ -67,7 +67,13 @@ public class GildedRoseTest {
                 $("normal item", new Item("foo", 10, 10), new Item("", 9, 9)),
                 $("normal item", new Item("foo", 0, 10), new Item("", -1, 8)),
 
-                $("sulfuras", new Item("Sulfuras, Hand of Ragnaros", 10, 80), new Item("", 10, 80))
+                $("sulfuras", new Item("Sulfuras, Hand of Ragnaros", 10, 80), new Item("", 10, 80)),
+
+                $("aged brie", new Item("Aged Brie", 1, 0), new Item("", 0, 1)),
+                $("aged brie", new Item("Aged Brie", 1, 50), new Item("", 0, 50)),
+                $("aged brie", new Item("Aged Brie", 0, 50), new Item("", -1, 50)),
+                $("aged brie", new Item("Aged Brie", 0, 49), new Item("", -1, 50)),
+                $("aged brie", new Item("Aged Brie", 0, 0), new Item("", -1, 2))
         );
     }
 }
