@@ -20,27 +20,17 @@ public class GildedRose {
 
     protected void updateItemQuality(Item item) {
         if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
-            if (item.quality > 0) {
-                if (item.name != "Sulfuras, Hand of Ragnaros") {
-                    item.quality--;
-                }
-            }
+            decrementQuality(item);
         } else {
-            if (item.quality < 50) {
-                item.quality++;
-            }
+            incrementQuality(item);
 
             if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
                 if (item.sellIn < 11) {
-                    if (item.quality < 50) {
-                        item.quality++;
-                    }
+                    incrementQuality(item);
                 }
 
                 if (item.sellIn < 6) {
-                    if (item.quality < 50) {
-                        item.quality++;
-                    }
+                    incrementQuality(item);
                 }
             }
         }
@@ -56,18 +46,26 @@ public class GildedRose {
         if (item.sellIn < 0) {
             if (item.name != "Aged Brie") {
                 if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
-                    if (item.quality > 0) {
-                        if (item.name != "Sulfuras, Hand of Ragnaros") {
-                            item.quality--;
-                        }
-                    }
+                    decrementQuality(item);
                 } else {
                     item.quality = 0;
                 }
             } else {
-                if (item.quality < 50) {
-                    item.quality++;
-                }
+                incrementQuality(item);
+            }
+        }
+    }
+
+    protected void incrementQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality++;
+        }
+    }
+
+    protected void decrementQuality(Item item) {
+        if (item.quality > 0) {
+            if (item.name != "Sulfuras, Hand of Ragnaros") {
+                item.quality--;
             }
         }
     }
