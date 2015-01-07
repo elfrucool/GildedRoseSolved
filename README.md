@@ -12,7 +12,7 @@ STAGES
 
 1. Decoupling iteration from item transformation and improving general instantiation using a factory (tag: **stage-1**).
 1. Generating all test scenarios (tag: **stage-2**).
-1. Refactoring using polimorphism instead of if-else (tag: **stage-3**).
+1. Refactoring using polymorphism instead of if-else (tag: **stage-3**).
 1. Adding the new requirement for "Conjured item" (tag: **stage-4**).
 
 # STAGE 1: DECOUPLING ITERATION FROM ITEM TRANSFORMATION (AND ALSO USING A FACTORY)
@@ -102,3 +102,30 @@ You can track my changes of this stage with the following commit messages:
 * BITE 5: SULFURAS ITEM SCENARIOS
 * BITE 6: AGED BRIE SCENARIOS
 * BITE 7: BACKSTAGE SCENARIOS
+
+# STAGE 3: REFACTORING USING POLYMORPHISM INSTEAD OF IF-ELSE
+
+**NOTE:** fixed typo: polimorphism => polymorphism :$
+
+Now that we have the shield to protect us against breaking something we are confident to transform this ugly piece
+of spaghetti into an elegant piece of good code!
+
+We have eaten the half of the cheese, we will continue biting until we get a small piece for the last stage.
+
+Currently here are the next bites:
+
+* BITE 8: SIMPLIFYING OBVIOUS OPERATIONS
+* BITE 9: SPLITTING BIG METHOD IN SMALLER PIECES
+* BITE 10: EXTRACTING COMMON TRANSFORMATIONS
+* BITE 11: PREPARING POLYMORPHISM ENVIRONMENT
+* BITE 12: SULFURAS ITEM HANDLING THROUGH POLYMORPHISM
+* BITE 12: AGED BRIE ITEM HANDLING THROUGH POLYMORPHISM
+* BITE 12: BACKSTAGE ITEM HANDLING THROUGH POLYMORPHISM
+* BITE 13: VERIFYING PROGRAM IS WORKING AGAINST OUTPUT
+
+## BITE 8: SIMPLIFYING OBVIOUS OPERATIONS
+
+This step will only cover reducing obvious operations to its minimal expression, a good IDE could be very helpful.
+
+Also it could be useful temporally commenting the line prior to refactoring it just to ensure the tests
+are covering it.
