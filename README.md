@@ -215,3 +215,11 @@ the **incrementQuality** method is not needed anymore in **ItemHandler** class.
 
 If for any reason, the behavior of Aged Brie item changes in business but it is still true that Backstage
 is a sub type of Aged Brie then we only need to modify in a single place.
+
+## BITE 15: VERIFYING PROGRAM IS WORKING AGAINST OUTPUT
+
+The code looks beautiful and the tests are always passing, now it is time to provide evidence that the main
+application is still working.
+
+I'll run the main program and grab the output in a file named **REFACTORED.txt**. Wow! the output is the same as
+the original! But, how different the code looks! it is now really maintainable and clean.
