@@ -236,6 +236,9 @@ The fastest modification is overriding _decrementQuality_ and call _super.decrem
 
 Finally we can avoid code duplication by tweaking here and there.
 
+If we run the Program again, we will notice that Conjured item effectively degrade in quality twice as fast as normal
+items. The change was really easy. I put that in a file named: **CONJURED.txt**.
+
 Here are the final bites:
 
 * BITE 16: TEST SCENARIOS FOR CONJURED ITEM

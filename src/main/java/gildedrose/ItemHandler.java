@@ -21,7 +21,12 @@ public class ItemHandler {
     }
 
     protected void decrementQuality(Item item) {
-        if (item.quality > 0)
-            item.quality--;
+        decrementQuality(item, 1);
+    }
+
+    protected void decrementQuality(Item item, int amount) {
+        item.quality -= amount;
+        if (item.quality < 0)
+            item.quality = 0;
     }
 }
