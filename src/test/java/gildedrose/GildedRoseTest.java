@@ -5,6 +5,9 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static junitparams.JUnitParamsRunner.$;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -40,7 +43,7 @@ public class GildedRoseTest {
 
     private class GildedRoseSpy extends GildedRose {
         public GildedRoseSpy(Item[] items) {
-            super(items);
+            super(items, null, null);
         }
 
         @Override
@@ -90,5 +93,41 @@ public class GildedRoseTest {
                 $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49), new Item("", 4, 50)),
                 $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48), new Item("", 4, 50))
         );
+    }
+
+    @Test
+    @Parameters(method = "delegationParameters")
+    public void shouldDelegate(String handle, Item item, String expected) throws Exception {
+        Map<String, ItemHandler> specialItemHandlers = createSpecialItemHandlerSpies();
+        GildedRose gr = new GildedRose(new Item[]{item}, new ItemHandlerSpy("default"), specialItemHandlers);
+        gr.updateQuality();
+        assertEquals(expected, capturedOutput);
+    }
+
+    private Map<String, ItemHandler> createSpecialItemHandlerSpies() {
+        Map<String, ItemHandler> handlers = new HashMap<String, ItemHandler>() {{
+            put("special item", new ItemHandlerSpy("special"));
+        }};
+        return handlers;
+    }
+
+    protected Object delegationParameters() {
+        return $(
+                $("default item", new Item("", 0, 0), "default"),
+                $("special item", new Item("special item", 0, 0), "special")
+        );
+    }
+
+    private class ItemHandlerSpy extends ItemHandler {
+        private String identifier;
+
+        public ItemHandlerSpy(String identifier) {
+            this.identifier = identifier;
+        }
+
+        @Override
+        public void updateItem(Item item) {
+            capturedOutput = identifier;
+        }
     }
 }

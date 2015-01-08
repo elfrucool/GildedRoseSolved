@@ -119,9 +119,9 @@ Currently here are the next bites:
 * BITE 10: EXTRACTING COMMON TRANSFORMATIONS
 * BITE 11: PREPARING POLYMORPHISM ENVIRONMENT
 * BITE 12: SULFURAS ITEM HANDLING THROUGH POLYMORPHISM
-* BITE 12: AGED BRIE ITEM HANDLING THROUGH POLYMORPHISM
-* BITE 12: BACKSTAGE ITEM HANDLING THROUGH POLYMORPHISM
-* BITE 13: VERIFYING PROGRAM IS WORKING AGAINST OUTPUT
+* BITE 13: AGED BRIE ITEM HANDLING THROUGH POLYMORPHISM
+* BITE 14: BACKSTAGE ITEM HANDLING THROUGH POLYMORPHISM
+* BITE 15: VERIFYING PROGRAM IS WORKING AGAINST OUTPUT
 
 ## BITE 8: SIMPLIFYING OBVIOUS OPERATIONS
 
@@ -153,3 +153,26 @@ The commits will be identified as:
 
 * BITE 10.1: EXTRACTING IF BLOCK
 * BITE 10.2: EXTRACTING COMMON TRANSFORMATIONS
+
+## BITE 11: PREPARING POLYMORPHISM ENVIRONMENT
+
+To replace these ugly if-else blocks that handle de several types of items with an elegant polymorphistic model,
+I'll delegate the entire logic of the item transformation to a class named **ItemHandler**, and the original
+**GildedRose** class will be responsible only for three things:
+
+1. Holding the items,
+1. Iterating through them and
+1. Choosing the right **ItemHandler** for each situation.
+
+Later, I'll extend the **ItemHandler** class for dealing specific cases for the different item types.
+That will be accomplished in bites 12 to 14.
+
+I'll create a **defaultItemHandler** property in **GildedRose** class for default Items, and a map named
+**specialItemHandlers** for special cases, the key will be the item name (sulfuras, aged brie, etc) and the
+value will be a specific **ItemHandler** for that type of item.
+
+The **GildedRoseFactory** class will be responsible to fill the map with the correct values.
+- That's the reason I created a factory at the beginning ;) -
+
+I made an additional parametric test and a spy class named **ItemHandlerSpy** for ensuring the delegation works
+correctly.
