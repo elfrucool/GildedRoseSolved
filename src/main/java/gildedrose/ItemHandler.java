@@ -4,11 +4,12 @@ public class ItemHandler {
     public void updateItem(Item item) {
         updateItemQuality(item);
         updateItemSellIn(item);
-        updateItemWhenOutdated(item);
+        if (item.sellIn < 0)
+            updateItemWhenOutdated(item);
     }
 
     protected void updateItemQuality(Item item) {
-        if (item.name != "Aged Brie" && item.name != "Backstage passes to a TAFKAL80ETC concert") {
+        if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
             decrementQuality(item);
         } else {
             incrementQuality(item);
@@ -28,16 +29,10 @@ public class ItemHandler {
     }
 
     protected void updateItemWhenOutdated(Item item) {
-        if (item.sellIn < 0) {
-            if (item.name != "Aged Brie") {
-                if (item.name != "Backstage passes to a TAFKAL80ETC concert")
-                    decrementQuality(item);
-                else
-                    item.quality = 0;
-            } else {
-                incrementQuality(item);
-            }
-        }
+        if (item.name != "Backstage passes to a TAFKAL80ETC concert")
+            decrementQuality(item);
+        else
+            item.quality = 0;
     }
 
     protected void incrementQuality(Item item) {

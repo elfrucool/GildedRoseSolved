@@ -192,3 +192,15 @@ to "sulfuras item"
 I'll repeat this strategy with every delegation later.
 
 We can also remove some unnecessary braces here and there.
+
+## BITE 13: AGED BRIE ITEM HANDLING THROUGH POLYMORPHISM
+
+Aged brie handler simply increments the quality when updating item quality and again when updating an outdated item.
+
+The steps are the same as in "sulfuras" case.
+
+Oops, I noticed that, in **ItemHandler** class, I have to move the _if_ at line 31 outside the method
+**updateItemWhenOutdated** (I forgot doing this at _BITE 10.2_). Let's do it.
+
+Now we can safely override the **updateItemQuality** and **updateItemWhenOutdated** methods; test and then remove
+every "aged brie" _if_ clause.
