@@ -223,3 +223,22 @@ application is still working.
 
 I'll run the main program and grab the output in a file named **REFACTORED.txt**. Wow! the output is the same as
 the original! But, how different the code looks! it is now really maintainable and clean.
+
+# STAGE 4: ADDING THE NEW REQUIREMENT FOR "CONJURED ITEM"
+
+The requirement simply says that _"Conjured" items degrade in Quality twice as fast as normal items_.
+
+First we need to add the Conjured scenarios for the new expected behavior.
+
+Then, using the same strategy as preceding steps, we can create a **ConjuredItemHandler** to deal with it.
+
+The fastest modification is overriding _decrementQuality_ and call _super.decrementQuality()_ twice.
+
+Finally we can avoid code duplication by tweaking here and there.
+
+Here are the final bites:
+
+* BITE 16: TEST SCENARIOS FOR CONJURED ITEM
+* BITE 17: IMPLEMENTING CONJURED LOGIC TO MAKE THE TESTS PASS
+* BITE 18: AVOIDING CODE DUPLICATION
+

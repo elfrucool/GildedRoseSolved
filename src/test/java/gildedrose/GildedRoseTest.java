@@ -91,7 +91,16 @@ public class GildedRoseTest {
                 $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 0), new Item("", 4, 3)),
                 $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 50), new Item("", 4, 50)),
                 $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49), new Item("", 4, 50)),
-                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48), new Item("", 4, 50))
+                $("backstage", new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48), new Item("", 4, 50)),
+
+                $("conjured", new Item("Conjured Mana Cake", 0, 0), new Item("", -1, 0)),
+                $("conjured", new Item("Conjured Mana Cake", 1, 0), new Item("", 0, 0)),
+                $("conjured", new Item("Conjured Mana Cake", 1, 1), new Item("", 0, 0)),
+                $("conjured", new Item("Conjured Mana Cake", 10, 10), new Item("", 9, 8)),
+                $("conjured", new Item("Conjured Mana Cake", 0, 10), new Item("", -1, 6)),
+                $("conjured", new Item("Conjured Mana Cake", 0, 1), new Item("", -1, 0)),
+                $("conjured", new Item("Conjured Mana Cake", 0, 2), new Item("", -1, 0)),
+                $("conjured", new Item("Conjured Mana Cake", 0, 3), new Item("", -1, 0))
         );
     }
 
