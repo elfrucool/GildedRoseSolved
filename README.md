@@ -167,8 +167,8 @@ I'll delegate the entire logic of the item transformation to a class named **Ite
 Later, I'll extend the **ItemHandler** class for dealing specific cases for the different item types.
 That will be accomplished in bites 12 to 14.
 
-I'll create a **defaultItemHandler** property in **GildedRose** class for default Items, and a map named
-**specialItemHandlers** for special cases, the key will be the item name (sulfuras, aged brie, etc) and the
+I'll create a _defaultItemHandler_ property in **GildedRose** class for default Items, and a map named
+_specialItemHandlers_ for special cases, the key will be the item name (sulfuras, aged brie, etc) and the
 value will be a specific **ItemHandler** for that type of item.
 
 The **GildedRoseFactory** class will be responsible to fill the map with the correct values.
@@ -176,3 +176,19 @@ The **GildedRoseFactory** class will be responsible to fill the map with the cor
 
 I made an additional parametric test and a spy class named **ItemHandlerSpy** for ensuring the delegation works
 correctly.
+
+## BITE 12: SULFURAS ITEM HANDLING THROUGH POLYMORPHISM
+
+This is the easiest polymorphic case, in this case, the **SulfurasItemHandler** class will do nothing when
+its method **updateItem** is called.
+
+I will put an entry in the _specialItemHandlers_ map with the full name of "sulfuras" item and _null_,
+I expect that every "sulfuras" scenario fails with null pointer exception to ensure the delegation will work correctly.
+
+Later I'll put the new **SulfurasItemHandler** in place.
+I'll override the _updateItem_ method and after testing I can safely remove all _if_ sentences related
+to "sulfuras item"
+
+I'll repeat this strategy with every delegation later.
+
+We can also remove some unnecessary braces here and there.
