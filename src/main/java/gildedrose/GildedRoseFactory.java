@@ -8,6 +8,7 @@ public class GildedRoseFactory {
         Map<String, ItemHandler> specialItemHandlers = new HashMap<String, ItemHandler>() {{
             put("Sulfuras, Hand of Ragnaros", new SulfurasItemHandler());
             put("Aged Brie", new AgedBrieItemHandler());
+            put("Backstage passes to a TAFKAL80ETC concert", new BackstageItemHandler());
         }};
         return new GildedRose(items, new ItemHandler(), specialItemHandlers);
     }

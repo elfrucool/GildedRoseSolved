@@ -9,19 +9,7 @@ public class ItemHandler {
     }
 
     protected void updateItemQuality(Item item) {
-        if (item.name != "Backstage passes to a TAFKAL80ETC concert") {
-            decrementQuality(item);
-        } else {
-            incrementQuality(item);
-
-            if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
-                if (item.sellIn < 11)
-                    incrementQuality(item);
-
-                if (item.sellIn < 6)
-                    incrementQuality(item);
-            }
-        }
+        decrementQuality(item);
     }
 
     protected void updateItemSellIn(Item item) {
@@ -29,15 +17,7 @@ public class ItemHandler {
     }
 
     protected void updateItemWhenOutdated(Item item) {
-        if (item.name != "Backstage passes to a TAFKAL80ETC concert")
-            decrementQuality(item);
-        else
-            item.quality = 0;
-    }
-
-    protected void incrementQuality(Item item) {
-        if (item.quality < 50)
-            item.quality++;
+        decrementQuality(item);
     }
 
     protected void decrementQuality(Item item) {

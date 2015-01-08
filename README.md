@@ -204,3 +204,14 @@ Oops, I noticed that, in **ItemHandler** class, I have to move the _if_ at line 
 
 Now we can safely override the **updateItemQuality** and **updateItemWhenOutdated** methods; test and then remove
 every "aged brie" _if_ clause.
+
+## BITE 14: BACKSTAGE ITEM HANDLING THROUGH POLYMORPHISM
+
+Although a bit more complex, it becomes easy if we follow the strategy already used.
+
+After doing that, checking the requirements, we can see that Backstage item is a special type of Aged Brie item,
+we probably should make **BackstageItemHandler** class inherit **AgedBrieItemHandler** with the convenience that
+the **incrementQuality** method is not needed anymore in **ItemHandler** class.
+
+If for any reason, the behavior of Aged Brie item changes in business but it is still true that Backstage
+is a sub type of Aged Brie then we only need to modify in a single place.
