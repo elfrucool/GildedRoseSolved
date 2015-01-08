@@ -9,6 +9,7 @@ public class GildedRoseFactory {
             put("Sulfuras, Hand of Ragnaros", new SulfurasItemHandler());
             put("Aged Brie", new AgedBrieItemHandler());
             put("Backstage passes to a TAFKAL80ETC concert", new BackstageItemHandler());
+            put("Conjured Mana Cake", new ConjuredItemHandler());
         }};
         return new GildedRose(items, new ItemHandler(), specialItemHandlers);
     }
